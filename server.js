@@ -5,8 +5,12 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-// server.use(middlewares);
-server.use(auth(router));
+// /!\ Bind the router db to the app
+app.db = router.db;
+
+// You must apply the auth middleware before the router
+app.use(auth);
+app.use(router);
 
 server.listen(process.env.PORT || 3000, () => {
   console.log(
