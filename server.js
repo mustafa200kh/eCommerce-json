@@ -9,6 +9,7 @@ const middlewares = jsonServer.defaults();
 app.db = router.db;
 
 // You must apply the auth middleware before the router
+app.use(middlewares);
 app.use(auth);
 app.use(router);
 
