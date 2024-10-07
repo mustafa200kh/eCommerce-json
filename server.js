@@ -12,7 +12,7 @@ app.db = router.db;
 app.use(auth);
 app.use(router);
 
-server.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(
     "JSON Server is running: " + (process.env.PORT ? process.env.PORT : 3000)
   );
